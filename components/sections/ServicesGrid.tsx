@@ -26,20 +26,24 @@ export function ServicesGrid() {
     <section className="py-20 max-[56.25rem]:py-[3.75rem] border-b border-vl-line" id="services">
       <div className="container">
         <div className="grid grid-cols-[12.5rem_1fr] max-[56.25rem]:grid-cols-1 gap-[3.75rem] max-[56.25rem]:gap-4 mb-12 max-[56.25rem]:mb-8 items-start">
-          <div className="mono text-xs text-vl-fg-muted">§ 01 / Services</div>
+          <div className="mono text-xs text-vl-fg-muted reveal reveal--left">§ 01 / Services</div>
           <div>
-            <h2 className="text-[clamp(1.625rem,3vw,2.375rem)] font-medium tracking-[-0.02em] leading-[1.15] mb-3 max-w-[22ch]">
+            <h2 className="text-[clamp(1.625rem,3vw,2.375rem)] font-medium tracking-[-0.02em] leading-[1.15] mb-3 max-w-[22ch] reveal">
               Three crafts, <span className="dim">run by one team</span>.
             </h2>
-            <p className="text-[0.9375rem] text-vl-fg-dim max-w-[50ch]">
+            <p className="text-[0.9375rem] text-vl-fg-dim max-w-[50ch] reveal" style={{ '--delay': '80ms' } as React.CSSProperties}>
               We don&apos;t hand off between disciplines. The engineer who ships the feature is in the room when we cut the launch video and write the email. Less translation, faster output.
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-3 max-[56.25rem]:grid-cols-1 gap-4">
-          {SERVICES.map(s => (
-            <article key={s.num} className="border border-vl-line rounded-md bg-vl-bg-2 overflow-hidden flex flex-col transition-all duration-200 hover:border-vl-line-2 hover:-translate-y-0.5 reveal">
+          {SERVICES.map((s, i) => (
+            <article
+              key={s.num}
+              className="border border-vl-line rounded-md bg-vl-bg-2 overflow-hidden flex flex-col transition-all duration-300 hover:border-vl-line-2 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.25)] reveal"
+              style={{ '--delay': `${i * 120}ms` } as React.CSSProperties}
+            >
               <div className="px-4 py-3 border-b border-vl-line flex items-center justify-between mono text-[0.6875rem] text-vl-fg-muted">
                 <span><span className="text-vl-accent">{s.num}</span> · {s.label}</span>
                 <span>./{s.slug}</span>

@@ -28,7 +28,7 @@ const FILTERS = [
   { tag: 'marketing', label: 'Marketing' },
 ];
 
-const rowCls = 'grid grid-cols-[3.125rem_1.4fr_1.8fr_1.4fr_5rem_2.5rem] max-[56.25rem]:grid-cols-1 gap-4 max-[56.25rem]:gap-1 items-center px-4 py-3.5 max-[56.25rem]:py-4 mono text-xs border-b border-vl-line last:border-b-0 transition-colors duration-150 hover:bg-vl-bg-3 cursor-pointer group';
+const rowCls = 'grid grid-cols-[3.125rem_1.4fr_1.8fr_1.4fr_5rem_2.5rem] max-[56.25rem]:grid-cols-1 gap-4 max-[56.25rem]:gap-1 items-center px-4 py-3.5 max-[56.25rem]:py-4 mono text-xs border-b border-vl-line last:border-b-0 transition-colors duration-150 hover:bg-vl-bg-3 cursor-pointer group reveal';
 
 export function WorkFilterTable() {
   const [active, setActive] = useState('all');
@@ -36,7 +36,7 @@ export function WorkFilterTable() {
 
   return (
     <>
-      <div className="flex gap-1.5 mt-6 flex-wrap">
+      <div className="flex gap-1.5 mt-6 flex-wrap reveal" style={{ '--delay': '260ms' } as React.CSSProperties}>
         {FILTERS.map(f => (
           <button
             key={f.tag}
@@ -55,8 +55,13 @@ export function WorkFilterTable() {
         <div className="grid grid-cols-[3.125rem_1.4fr_1.8fr_1.4fr_5rem_2.5rem] max-[56.25rem]:hidden gap-4 items-center px-4 py-3.5 bg-vl-bg-3 border-b border-vl-line mono text-[0.625rem] text-vl-fg-muted uppercase tracking-[0.08em]">
           <div>#</div><div>Project</div><div>Brief</div><div>Discipline</div><div>Year</div><div />
         </div>
-        {visible.map(item => (
-          <Link className={rowCls} key={item.num} href="#">
+        {visible.map((item, i) => (
+          <Link
+            className={rowCls}
+            key={item.num}
+            href="#"
+            style={{ '--delay': `${Math.min(i, 7) * 45}ms` } as React.CSSProperties}
+          >
             <div className="text-vl-fg-dim">{item.num}</div>
             <div>
               <div className="font-sans text-base text-vl-fg font-medium tracking-[-0.01em]">{item.name}</div>

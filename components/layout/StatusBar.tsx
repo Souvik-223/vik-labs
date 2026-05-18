@@ -29,7 +29,7 @@ export function StatusBar() {
         Booking Q3 · 2 slots open
       </div>
       <div className={`${cell} max-[56.25rem]:hidden`}>
-        Bengaluru · <span className="acc">{time}</span> IST
+        Kolkata · <span className="acc">{time}</span> IST
       </div>
       <div className="flex-1" />
       <div className="px-3.5 h-full flex items-center gap-2 border-l border-vl-line whitespace-nowrap max-[56.25rem]:hidden">

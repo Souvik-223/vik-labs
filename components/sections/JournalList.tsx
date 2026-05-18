@@ -26,11 +26,12 @@ export function JournalList({ limit }: JournalListProps) {
   const entries = limit ? JOURNAL_ENTRIES.slice(0, limit) : JOURNAL_ENTRIES;
   return (
     <div className="border border-vl-line rounded-md overflow-hidden bg-vl-bg-2">
-      {entries.map(entry => (
+      {entries.map((entry, i) => (
         <Link
           key={entry.title}
           href="#"
-          className="grid grid-cols-[7.5rem_1fr_8.125rem_4.375rem_2.5rem] max-[56.25rem]:grid-cols-1 items-center gap-4 max-[56.25rem]:gap-1 p-4 border-b border-vl-line last:border-b-0 transition-colors duration-150 hover:bg-vl-bg-3 cursor-pointer group"
+          className="grid grid-cols-[7.5rem_1fr_8.125rem_4.375rem_2.5rem] max-[56.25rem]:grid-cols-1 items-center gap-4 max-[56.25rem]:gap-1 p-4 border-b border-vl-line last:border-b-0 transition-colors duration-150 hover:bg-vl-bg-3 cursor-pointer group reveal"
+          style={{ '--delay': `${Math.min(i, 6) * 50}ms` } as React.CSSProperties}
         >
           <div className="mono text-[0.6875rem] text-vl-fg-muted max-[56.25rem]:hidden">{entry.date}</div>
           <div className="text-base font-medium tracking-[-0.01em] text-vl-fg group-hover:text-vl-accent transition-colors duration-150">{entry.title}</div>

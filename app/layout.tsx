@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Audiowide } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Nav } from '@/components/layout/Nav';
 import { StatusBar } from '@/components/layout/StatusBar';
 import { Footer } from '@/components/layout/Footer';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
+import { PageTransition } from '@/components/layout/PageTransition';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
+const audiowide = Audiowide({ variable: '--font-audiowide', subsets: ['latin'], weight: '400' });
 
 const THEME_INIT = `(function(){var t=localStorage.getItem('vl-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})()`;
 
@@ -22,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       data-theme="dark"
-      className={cn(geistSans.variable, geistMono.variable)}
+      className={cn(geistSans.variable, geistMono.variable, audiowide.variable)}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
@@ -31,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StatusBar />
         <ScrollProgress />
         <Nav />
-        <main style={{ paddingTop: '5.25rem' }}>{children}</main>
+        <main style={{ paddingTop: '5.25rem' }}><PageTransition>{children}</PageTransition></main>
         <Footer />
       </body>
     </html>

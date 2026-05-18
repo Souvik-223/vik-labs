@@ -30,7 +30,10 @@ export function ContactForm() {
     <section className="container">
       <div className="grid grid-cols-[1.5fr_1fr] max-[56.25rem]:grid-cols-1 gap-[3.75rem] max-[56.25rem]:gap-8 py-[3.75rem] pb-20 max-[56.25rem]:py-10 max-[56.25rem]:pb-[3.75rem]">
 
-        <form className="border border-vl-line rounded-md bg-vl-bg-2 p-6 flex flex-col gap-[1.125rem]" onSubmit={handleSubmit}>
+        <form
+          className="border border-vl-line rounded-md bg-vl-bg-2 p-6 flex flex-col gap-[1.125rem] reveal"
+          onSubmit={handleSubmit}
+        >
           <div className="pb-3.5 mb-1.5 border-b border-vl-line mono text-[0.6875rem] text-vl-fg-muted flex justify-between uppercase tracking-[0.08em]">
             {sent ? <span className="text-vl-accent">● MESSAGE SENT</span> : <span>NEW / BRIEF</span>}
             <span>~12 hr reply</span>
@@ -100,7 +103,10 @@ export function ContactForm() {
           )}
         </form>
 
-        <aside className="flex flex-col gap-6">
+        <aside
+          className="flex flex-col gap-6 reveal reveal--right"
+          style={{ '--delay': '150ms' } as React.CSSProperties}
+        >
           <div className="border border-vl-line rounded-md bg-vl-bg-2 p-4">
             <h4 className="mono text-[0.625rem] text-vl-fg-muted uppercase tracking-[0.1em] mb-2.5 font-medium">Email</h4>
             <Link href="mailto:hello@viklabs.io" className="text-vl-fg text-sm hover:text-vl-accent transition-colors duration-150">hello@viklabs.io</Link>
@@ -109,7 +115,7 @@ export function ContactForm() {
           <div className="border border-vl-line rounded-md bg-vl-bg-2 p-4">
             <h4 className="mono text-[0.625rem] text-vl-fg-muted uppercase tracking-[0.1em] mb-2.5 font-medium">When</h4>
             <p className="text-[0.8125rem] text-vl-fg flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-vl-green shadow-[0_0_0.3125rem_var(--vl-green)] shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-vl-green pulse-dot shrink-0" />
               Mon — Fri / 10:00 — 19:00 IST
             </p>
             <p className="mt-2 mono text-[0.6875rem] text-vl-fg-muted">Currently: <span className="text-vl-accent">{time}</span></p>

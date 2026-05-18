@@ -33,9 +33,9 @@ export function Footer() {
   return (
     <footer className="pt-20 pb-6 bg-vl-bg">
       <div className="container">
-        <div className="grid grid-cols-[2fr_1fr_1fr_1fr] max-[56.25rem]:grid-cols-2 gap-10 pb-[3.75rem] border-b border-vl-line">
+        <div className="grid grid-cols-[2fr_1fr_1fr_1fr] max-[56.25rem]:grid-cols-2 gap-10 pb-15 border-b border-vl-line">
           <div>
-            <div className="w-[12.5rem] h-11 bg-[image:var(--logo-url)] bg-contain bg-no-repeat bg-left-center mb-5" />
+            <div className="h-20 bg-(image:--logo-full-url) bg-contain bg-no-repeat bg-left-center mb-4" />
             <p className="text-vl-fg-dim text-[0.8125rem] max-w-[32ch] leading-[1.6]">
               An independent product studio building software, video, and marketing for founders. Based in Bengaluru, working with teams from Berlin to Brooklyn.
             </p>
@@ -58,13 +58,14 @@ export function Footer() {
         </div>
 
         <div
-          className="font-medium tracking-[-0.05em] leading-[0.9] mt-[3.75rem] mb-10 select-none text-transparent text-center"
+          className="mt-15 mb-10 select-none text-center leading-none reveal footer-wordmark-gradient"
           style={{
+            fontFamily: 'var(--font-audiowide)',
             fontSize: 'clamp(4.375rem, 16vw, 13.75rem)',
-            WebkitTextStroke: '1px var(--vl-fg-dim)',
+            WebkitTextStroke: '1px var(--fg-muted)',
           }}
         >
-          viklabs
+          VikLabs
         </div>
 
         <div className="pt-6 flex justify-between items-center flex-wrap gap-4 max-[56.25rem]:flex-col max-[56.25rem]:items-start mono text-[0.6875rem] text-vl-fg-muted">

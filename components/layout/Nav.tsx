@@ -39,9 +39,9 @@ export function Nav() {
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
-    <nav className="fixed top-7 left-0 right-0 z-[100] bg-vl-bg border-b border-vl-line flex items-center justify-between px-5 max-[56.25rem]:px-3.5 h-14">
+    <nav className="fixed top-7 left-0 right-0 z-[100] bg-vl-bg border-b border-vl-line flex items-center justify-between px-5 max-[56.25rem]:px-3.5 h-14 nav-enter">
       <Link href="/" className="flex items-center gap-3 shrink-0">
-        <div className="w-[11.25rem] h-10 bg-[image:var(--logo-url)] bg-contain bg-no-repeat bg-center" />
+        <div className="w-[4.375rem] h-[4.375rem] bg-[image:var(--logo-url)] bg-contain bg-no-repeat bg-center" />
         <span className="mono text-[0.625rem] text-vl-fg-muted border border-vl-line-2 px-1.5 py-0.5 rounded-[0.1875rem]">v26</span>
       </Link>
 

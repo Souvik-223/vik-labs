@@ -99,7 +99,8 @@
   --sidebar-border:             #1a1a1f;
   --sidebar-ring:               oklch(0.7 0.2 255);
 
-  --logo-url: url('/assests/logo-dark-transparent.png');
+  --logo-url: url('/assests/logo-mini-dark-trasnparent.png');
+  --logo-full-url: url('/assests/logo-dark-transparent.png');
 }
 
 :root[data-theme="light"] {
@@ -143,7 +144,8 @@
   --sidebar-border:             #e6e6e3;
   --sidebar-ring:               oklch(0.55 0.2 255);
 
-  --logo-url: url('/assests/logo-light-transparent.png');
+  --logo-url: url('/assests/logo-mini-light-transparent.png');
+  --logo-full-url: url('/assests/logo-light-transparent.png');
 }
 
 /* ================================================================
@@ -189,10 +191,93 @@
   padding: 0 1.25rem;
 }
 
-/* Toggled by useReveal hook via IntersectionObserver — must stay as CSS classes */
+/* ================================================================
+   Reveal system — toggled by useReveal hook via IntersectionObserver
+   Use --delay CSS variable for stagger: style={{ '--delay': '120ms' }}
+   ================================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: translateY(1rem);
+  transition:
+    opacity  0.65s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
 }
-.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.reveal--left  { transform: translateX(-1.5rem); }
+.reveal.reveal--right { transform: translateX(1.5rem);  }
+.reveal.reveal--fade  { transform: none; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ================================================================
+   Page transition — class applied via PageTransition component
+   ================================================================ */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: page-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ================================================================
+   Nav entrance — plays once on initial load
+   ================================================================ */
+@keyframes nav-slide-in {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nav-enter {
+  animation: nav-slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ================================================================
+   Marquee — LogosStrip infinite scroll
+   ================================================================ */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-wrap { overflow: hidden; }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ================================================================
+   Footer wordmark — periodic gradient sweep across the text
+   Gradient cycles: muted → white → accent → white → muted
+   ================================================================ */
+@keyframes text-shimmer {
+  0%, 15%  { background-position: 0% 50%;   }
+  55%, 70% { background-position: 100% 50%; }
+  100%     { background-position: 0% 50%;   }
+}
+.footer-wordmark-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--fg-muted) 0%,
+    var(--fg-dim)   15%,
+    var(--fg)       35%,
+    var(--vl-accent) 50%,
+    var(--fg)       65%,
+    var(--fg-dim)   85%,
+    var(--fg-muted) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer-wordmark-gradient.in {
+  animation: text-shimmer 7s ease-in-out infinite;
+}
+
+/* ================================================================
+   Pulse dot — status indicator
+   ================================================================ */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1;   box-shadow: 0 0 0.3125rem var(--vl-green); }
+  50%       { opacity: 0.5; box-shadow: 0 0 0.125rem var(--vl-green);  }
+}
+.pulse-dot { animation: pulse-dot 2.4s ease-in-out infinite; }

@@ -15,7 +15,7 @@ export const WORK_ITEMS = [
   { num: '06', name: 'Polar Studio',  sub: 'Design tool',           brief: 'Internal canvas engine, Figma plugin, animated explainer',         cat: 'Software · Video',    year: '2024', tags: ['software', 'video']    },
 ];
 
-const rowCls = 'grid grid-cols-[3.125rem_1.4fr_1.8fr_1.4fr_5rem_2.5rem] max-[56.25rem]:grid-cols-1 gap-4 max-[56.25rem]:gap-1 items-center px-4 py-3.5 max-[56.25rem]:py-4 mono text-xs border-b border-vl-line last:border-b-0 transition-colors duration-150 hover:bg-vl-bg-3 cursor-pointer group';
+const rowCls = 'grid grid-cols-[3.125rem_1.4fr_1.8fr_1.4fr_5rem_2.5rem] max-[56.25rem]:grid-cols-1 gap-4 max-[56.25rem]:gap-1 items-center px-4 py-3.5 max-[56.25rem]:py-4 mono text-xs border-b border-vl-line last:border-b-0 transition-all duration-150 hover:bg-vl-bg-3 cursor-pointer group reveal';
 
 interface WorkTableProps {
   limit?: number;
@@ -25,11 +25,16 @@ export function WorkTable({ limit }: WorkTableProps) {
   const items = limit ? WORK_ITEMS.slice(0, limit) : WORK_ITEMS;
   return (
     <div className="border border-vl-line rounded-md overflow-hidden bg-vl-bg-2">
-      <div className="grid grid-cols-[3.125rem_1.4fr_1.8fr_1.4fr_5rem_2.5rem] max-[56.25rem]:hidden gap-4 items-center px-4 py-3.5 bg-vl-bg-3 border-b border-vl-line mono text-[0.625rem] text-vl-fg-muted uppercase tracking-[0.08em]">
+      <div className="grid grid-cols-[3.125rem_1.4fr_1.8fr_1.4fr_5rem_2.5rem] max-[56.25rem]:hidden gap-4 items-center px-4 py-3.5 bg-vl-bg-3 border-b border-vl-line mono text-[0.625rem] text-vl-fg-muted uppercase tracking-[0.08em] reveal">
         <div>#</div><div>Project</div><div>Brief</div><div>Discipline</div><div>Year</div><div />
       </div>
-      {items.map(item => (
-        <Link className={rowCls} key={item.num} href="/work">
+      {items.map((item, i) => (
+        <Link
+          className={rowCls}
+          key={item.num}
+          href="/work"
+          style={{ '--delay': `${i * 55}ms` } as React.CSSProperties}
+        >
           <div className="text-vl-fg-dim">{item.num}</div>
           <div>
             <div className="font-sans text-base text-vl-fg font-medium tracking-[-0.01em]">{item.name}</div>

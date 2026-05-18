@@ -18,12 +18,12 @@ export default function HomePage() {
       <section className="py-20 max-[56.25rem]:py-[3.75rem] border-b border-vl-line" id="work">
         <div className="container">
           <div className="grid grid-cols-[12.5rem_1fr] max-[56.25rem]:grid-cols-1 gap-[3.75rem] max-[56.25rem]:gap-4 mb-12 max-[56.25rem]:mb-8 items-start">
-            <div className="mono text-xs text-vl-fg-muted">§ 02 / Work</div>
+            <div className="mono text-xs text-vl-fg-muted reveal reveal--left">§ 02 / Work</div>
             <div>
-              <h2 className="text-[clamp(1.625rem,3vw,2.375rem)] font-medium tracking-[-0.02em] leading-[1.15] mb-3 max-w-[22ch]">
+              <h2 className="text-[clamp(1.625rem,3vw,2.375rem)] font-medium tracking-[-0.02em] leading-[1.15] mb-3 max-w-[22ch] reveal">
                 A few things we&apos;ve <span className="dim">shipped, cut, and sold</span>.
               </h2>
-              <p className="text-[0.9375rem] text-vl-fg-dim max-w-[50ch]">
+              <p className="text-[0.9375rem] text-vl-fg-dim max-w-[50ch] reveal" style={{ '--delay': '80ms' } as React.CSSProperties}>
                 Six recent engagements. NDAs trim the list. Ask for the full case files when we talk.
               </p>
             </div>
