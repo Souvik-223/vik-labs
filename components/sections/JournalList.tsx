@@ -25,14 +25,18 @@ interface JournalListProps {
 export function JournalList({ limit }: JournalListProps) {
   const entries = limit ? JOURNAL_ENTRIES.slice(0, limit) : JOURNAL_ENTRIES;
   return (
-    <div className="journal-list">
+    <div className="border border-vl-line rounded-md overflow-hidden bg-vl-bg-2">
       {entries.map(entry => (
-        <Link className="journal-row" href="#" key={entry.title}>
-          <div className="j-date">{entry.date}</div>
-          <div className="j-title">{entry.title}</div>
-          <div className="j-tag">{entry.tag}</div>
-          <div className="j-read">{entry.read}</div>
-          <div className="j-arrow"><ArrowIcon /></div>
+        <Link
+          key={entry.title}
+          href="#"
+          className="grid grid-cols-[7.5rem_1fr_8.125rem_4.375rem_2.5rem] max-[56.25rem]:grid-cols-1 items-center gap-4 max-[56.25rem]:gap-1 p-4 border-b border-vl-line last:border-b-0 transition-colors duration-150 hover:bg-vl-bg-3 cursor-pointer group"
+        >
+          <div className="mono text-[0.6875rem] text-vl-fg-muted max-[56.25rem]:hidden">{entry.date}</div>
+          <div className="text-base font-medium tracking-[-0.01em] text-vl-fg group-hover:text-vl-accent transition-colors duration-150">{entry.title}</div>
+          <div className="mono text-[0.625rem] text-vl-fg-dim border border-vl-line-2 px-2 py-[0.1875rem] rounded-[0.1875rem] uppercase tracking-[0.06em] justify-self-start">{entry.tag}</div>
+          <div className="mono text-[0.625rem] text-vl-fg-muted uppercase tracking-[0.06em] max-[56.25rem]:hidden">{entry.read}</div>
+          <div className="text-vl-fg-muted justify-self-end group-hover:text-vl-accent transition-colors duration-150 max-[56.25rem]:hidden"><ArrowIcon /></div>
         </Link>
       ))}
     </div>

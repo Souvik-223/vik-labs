@@ -12,21 +12,36 @@ function EmailSignup() {
   }
 
   return (
-    <section className="cta-block">
+    <section className="py-[100px] text-center border-b border-vl-line">
       <div className="container">
-        <div className="section-label mono" style={{ justifyContent: 'center' }}>
+        <div className="mono text-[11px] text-vl-fg-muted uppercase tracking-[0.08em] inline-flex items-center justify-center gap-2 mb-7 before:content-[''] before:w-1 before:h-1 before:bg-vl-accent before:rounded-full before:shrink-0">
           Newsletter · monthly · no spam
         </div>
-        <h2>Get the journal <span className="dim">in your inbox</span>.</h2>
-        <p className="sub">
+        <h2 className="text-[clamp(32px,5vw,64px)] font-medium tracking-[-0.03em] leading-[1.05] mb-4">
+          Get the journal <span className="dim">in your inbox</span>.
+        </h2>
+        <p className="text-[16px] text-vl-fg-dim mb-8 max-w-[48ch] mx-auto">
           One email a month. New entries, behind‑the‑scenes from shoots and ships, and the occasional studio note.
         </p>
         {subscribed ? (
-          <p className="mono" style={{ color: 'var(--vl-accent)', fontSize: '13px' }}>✓ subscribed</p>
+          <p className="mono text-[13px] text-vl-accent">✓ subscribed</p>
         ) : (
-          <form className="email-form" onSubmit={handleSubmit}>
-            <input type="email" placeholder="you@somewhere.com" required />
-            <button type="submit">Subscribe</button>
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-[440px] mx-auto mt-6 flex gap-1.5 border border-vl-line rounded-[4px] p-1 bg-vl-bg-2"
+          >
+            <input
+              type="email"
+              placeholder="you@somewhere.com"
+              required
+              className="flex-1 bg-transparent border-none outline-none text-vl-fg mono text-[12px] px-3 py-2 placeholder:text-vl-fg-muted"
+            />
+            <button
+              type="submit"
+              className="mono text-[12px] bg-vl-fg text-vl-bg px-4 py-2 rounded-[3px] transition-colors duration-200 hover:bg-vl-accent hover:text-vl-accent-fg cursor-pointer"
+            >
+              Subscribe
+            </button>
           </form>
         )}
       </div>
@@ -43,7 +58,7 @@ export default function JournalPage() {
         lede="Field notes from inside the studio — what worked, what broke, and what we'd do differently. Sent out about once a month."
       />
 
-      <section className="container" style={{ padding: '60px 20px 40px' }}>
+      <section className="container py-[60px] pb-[40px]">
         <JournalList />
       </section>
 

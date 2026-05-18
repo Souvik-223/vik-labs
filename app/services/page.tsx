@@ -32,9 +32,9 @@ export default function ServicesPage() {
           'Design systems & component libs',
         ]}
         pricing={[
-          { label: 'Sprint',     value: '₹4L / 2 weeks'  },
-          { label: 'MVP build',  value: '₹14L / 6–8 wks' },
-          { label: 'Retainer',   value: '₹3.5L / mo'     },
+          { label: 'Sprint',     value: '$4,800 / 2 wks'  },
+          { label: 'MVP build',  value: '$16,500 / 6–8 wks' },
+          { label: 'Retainer',   value: '$4,200 / mo'     },
         ]}
       />
 
@@ -53,9 +53,9 @@ export default function ServicesPage() {
           'Original score & sound design',
         ]}
         pricing={[
-          { label: 'Single cut',       value: '₹2L / deliverable' },
-          { label: 'Launch package',   value: '₹6L / 4 wks'       },
-          { label: 'Content retainer', value: '₹2.5L / mo'         },
+          { label: 'Single cut',       value: '$2,400 / deliverable' },
+          { label: 'Launch package',   value: '$7,200 / 4 wks'       },
+          { label: 'Content retainer', value: '$3,000 / mo'           },
         ]}
       />
 
@@ -74,9 +74,9 @@ export default function ServicesPage() {
           'Activation & funnel analytics',
         ]}
         pricing={[
-          { label: 'Positioning',    value: '₹3L / 3 wks'  },
-          { label: 'Launch sprint',  value: '₹6L / 4 wks'  },
-          { label: 'Retainer',       value: '₹1.5L+ / mo'  },
+          { label: 'Positioning',    value: '$3,600 / 3 wks'  },
+          { label: 'Launch sprint',  value: '$7,200 / 4 wks'  },
+          { label: 'Retainer',       value: '$1,800+ / mo'    },
         ]}
         noBorder
       />

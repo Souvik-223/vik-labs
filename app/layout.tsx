@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StatusBar />
         <ScrollProgress />
         <Nav />
-        <main style={{ paddingTop: '84px' }}>{children}</main>
+        <main style={{ paddingTop: '5.25rem' }}>{children}</main>
         <Footer />
       </body>
     </html>
